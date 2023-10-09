@@ -1,6 +1,5 @@
 import time
-
-from selenium.common import TimeoutException, NoSuchElementException, ElementNotInteractableException
+from selenium.common import NoSuchElementException, ElementNotInteractableException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -37,7 +36,6 @@ class MainPage:
     def __init__(self, driver):
         self.driver = driver
         driver.get("https://sweet.tv/")
-
 
     def enter_cabinet_page(self):
         self.driver.find_element(By.XPATH, cabinet_button).click()

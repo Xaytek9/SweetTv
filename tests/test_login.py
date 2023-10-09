@@ -1,5 +1,3 @@
-import time
-
 from components import config
 from components.main_page import MainPage
 from tests.utils.driver_initilization import driver_initialization
@@ -33,7 +31,6 @@ def test_login():
 
     # Close promotion if apper
     main_page.select_promotion()
-
 
     # Check user data
     main_page.enter_cabinet_page()
