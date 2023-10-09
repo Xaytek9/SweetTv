@@ -29,6 +29,7 @@ button_login_by_sms = "//button[@ng-disabled='activeauth.$invalid || blocked || 
 button_get_sms_valid = "//button[@class='l__login-phone-btn get-sms l__login-phone-btn-valid']"
 button_get_sms_invalid = "//button[@class='l__login-phone-btn get-sms l__login-phone-btn-invalid']"
 skip_button_promotion2 = "//*[contains(text(), 'Пропустити')]"
+cabinet_button = "//*[@class='tabs-login']"
 
 
 class MainPage:
@@ -36,6 +37,10 @@ class MainPage:
     def __init__(self, driver):
         self.driver = driver
         driver.get("https://sweet.tv/")
+
+
+    def enter_cabinet_page(self):
+        self.driver.find_element(By.XPATH, cabinet_button).click()
 
     def is_button_disable(self):
 
@@ -59,22 +64,16 @@ class MainPage:
         return WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.XPATH, user_data))).text
 
     def select_promotion(self):
-        run_time = 10
+        run_time = 5
         start_time = time.time()
         while time.time() - start_time < run_time:
-            print("while")
             try:
-                print("try1")
                 self.driver.find_element(By.XPATH, skip_button_promotion).click()
             except (NoSuchElementException, ElementNotInteractableException):
-                print("Всплывающее окно не найдено")
                 pass
-                # Если элемент не найден, попробуем закрыть всплывающее окно с вторым локатором
                 try:
-                    print("try2")
                     self.driver.find_element(By.XPATH, skip_button_promotion2).click()
                 except (NoSuchElementException, ElementNotInteractableException):
-                    print("Всплывающее окно не найдено")
                     pass
 
     def confirm_sing_in(self):
