@@ -1,0 +1,15 @@
+Requirements:
+Automation tests can be run on Windows and support Ukrainian version of the site, so vpn should be used if you are outside Ukraine
+
+Preconditions:
+1) install python 3.9
+2) install required libraries using the next command run 'pip install -r requirements.txt'
+3) install the latest Chrome
+
+How to run:
+Use 'pytest' command to run all tests
+Use 'pytest -s tests\log_in --html=report.html' command to run all tests from specified folder
+Use 'pytest tests\log_in\test_login_negative.py --html=report.html' command to run all tests from specified file
+
+Notice:
+Reports are stored "C:/Users/Your name/sweet_tv/report.html"
