@@ -31,12 +31,10 @@ def test_login():
     # Return to main window
     driver.switch_to.window(main_window)
 
-    time.sleep(5)
     # Close promotion if apper
     main_page.select_promotion()
-    time.sleep(10)
-    # # Check user data
-    # driver.get("https://sweet.tv/cabinet")
-    # main_page.get_user_datas()
-    #
-    # assert (mail in main_page.get_user_datas())
+
+
+    # Check user data
+    main_page.enter_cabinet_page()
+    assert (mail in main_page.get_user_datas())
